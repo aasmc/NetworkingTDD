@@ -1,5 +1,6 @@
 package ru.aasmc.punchline
 
+import com.github.javafaker.Faker
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import io.reactivex.Single
 import okhttp3.mockwebserver.MockResponse
@@ -77,6 +78,24 @@ class JobServiceTestMockingService {
     }
 }
 
+class JobServiceTestUsingFaker {
+    var faker = Faker()
+    private val jokeService: JokeService = mock()
+    private val repository = RepositoryImpl(jokeService)
+
+    @Test
+    fun getRandomJokeEmitsJoke() {
+        val joke = Joke(
+            faker.idNumber().valid(),
+            faker.lorem().sentence()
+        )
+
+        whenever(jokeService.getRandomJoke())
+            .thenReturn(Single.just(joke))
+        val testObserver = repository.getJoke().test()
+        testObserver.assertValue(joke)
+    }
+}
 
 
 
