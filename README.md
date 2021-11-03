@@ -8,12 +8,17 @@ This app is meant to be very simple. It allows shows a user a new random joke, e
 the button is pressed. 
 
 ## Networking:
-
+Jokes are fetched from:
+```text
+"https://rw-punchline.herokuapp.com/"
+```
+Retrofit is used for creating network calls. 
 
 ## Tests
 - Mockito is used for mocking API responses
 - Faker is used for data creation
-- MockWebserver is used to mock the responses from network requests. 
+- MockWebserver is used to mock the responses from network requests. This is a library from OkHttp that allows us to run local
+HTTP server in tests. 
 
 
 ```text
