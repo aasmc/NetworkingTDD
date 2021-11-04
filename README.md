@@ -2,10 +2,15 @@
 
 This app is based on the book "Android test driven development by tutorials".
 
+It's main goal is to build simple app with the TDD approach focusing on testing the Network layer and performing
+some UI tests.
+
+It's based on Chapters 10 and 11 of the book.
+
 ## Functionality:
 
-This app is meant to be very simple. It allows shows a user a new random joke, every time
-the button is pressed. 
+This app is meant to be very simple. It shows the user a new random joke, every time
+the button is pressed.  
 
 ## Networking:
 Jokes are fetched from:
@@ -18,7 +23,8 @@ Retrofit is used for creating network calls.
 - Mockito is used for mocking API responses
 - Faker is used for data creation
 - MockWebserver is used to mock the responses from network requests. This is a library from OkHttp that allows us to run local
-HTTP server in tests. 
+HTTP server in tests.
+- Espresso is used for UI tests 
 
 
 ```text
